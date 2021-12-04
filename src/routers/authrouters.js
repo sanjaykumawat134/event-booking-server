@@ -73,15 +73,16 @@ authroutes.post("/login", async (req, res) => {
     const { email, password } = req.body;
     let user;
     if (role === "ADMIN") {
-      user = await User.findUserByCredientials(email, password);
+      user = await Admin.findUserByCredientials(email, password);
     }
-    if (role === "Organizer") {
+    if (role === "ORGANIZER") {
       user = await Organizer.findUserByCredientials(email, password);
     }
     if (role === "USER") {
-      user = await Admin.findUserByCredientials(email, password);
+      user = await User.findUserByCredientials(email, password);
     }
     const token = await user.generateToken();
+    console.log(user);
     res.status(200).send({ user, token });
   } catch (error) {
     console.log(error);

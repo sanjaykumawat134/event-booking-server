@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const bookingSchema = new mongoose.Schema(
   {
     booking_id: mongoose.Types.ObjectId,
-    event_date: Date,
     user_ref: {
       type: mongoose.Types.ObjectId,
       ref: "User",
@@ -12,12 +11,16 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "Event",
     },
+    organizer_ref: {
+      type: mongoose.Types.ObjectId,
+      ref: "Organizer",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Booking = mongoose.model("User", bookingSchema);
+const Booking = mongoose.model("Booking", bookingSchema);
 
 module.exports = Booking;

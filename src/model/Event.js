@@ -19,7 +19,7 @@ const eventSchema = new mongoose.Schema(
         type: Date,
       },
     },
-    time: {
+    event_time: {
       minTime: {
         type: Date,
       },
@@ -37,7 +37,7 @@ const eventSchema = new mongoose.Schema(
     limit: {
       type: Number,
     },
-    org_ref: {
+    organizer_ref: {
       type: mongoose.Types.ObjectId,
       ref: "Organizer",
     },

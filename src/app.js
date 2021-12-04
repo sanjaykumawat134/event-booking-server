@@ -2,6 +2,8 @@ const express = require("express");
 
 const cors = require("cors");
 const authRouters = require("./routers/authrouters");
+const vanueroutes = require("./routers/venue");
+const eventRoutes = require("./routers/event");
 require("./db/mongoose");
 const app = express();
 app.use(
@@ -24,4 +26,6 @@ app.use(
 );
 
 app.use("/users", authRouters);
+app.use("/vanue", vanueroutes);
+app.use("/event", eventRoutes);
 module.exports = app;
